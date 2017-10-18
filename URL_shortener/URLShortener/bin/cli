@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+require 'launchy'
+
+#get user email
+puts 'Please enter your email address:'
+print "> "
+user_email = gets.chomp
+
+puts "Please select an option:"
+puts "1. Visiting a shorted URL"
+puts "2. Creating a new URL"
+choice = gets.chomp.to_i
+
+case choice
+when 1
+  puts "Enter short URL"
+  print "> "
+  short_url = gets.chomp
+
+  long_url = ShortenedUrl.where("short_url = '#{short_url}'").first.long_url
+
+  Launchy.open( long_url )
+
+
+when 2
+  puts "Please enter a long URL"
+  print "> "
+  long_url = gets.chomp
+  user = User.where("email = '#{user_email}'").first
+  short_url = ShortenedUrl.random_code(user, long_url)
+  short_url.save
+  print  "short URL: "
+  print  short_url.short_url + "\n"
+  Launchy.open( long_url )
+end
