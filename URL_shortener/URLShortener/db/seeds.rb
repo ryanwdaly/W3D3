@@ -15,10 +15,10 @@ user2.save
 user3.save
 
 #create_urls
-url1 = ShortenedUrl.random_code(user1, 'ldl;fakdsfakjk;jasd;jgfj;.com')# id =1
-url2 = ShortenedUrl.random_code(user1, 'hellooooworld.com')#id = 2
-url3 = ShortenedUrl.random_code(user3, 'iamtypingwords.com')#id = 3
-url4 = ShortenedUrl.random_code(user1, 'longlonglonglong.com')#id = 4
+url1 = ShortenedUrl.random_code(user1, 'birds.com')# id =1
+url2 = ShortenedUrl.random_code(user1, 'boatsandbirds.com')#id = 2
+url3 = ShortenedUrl.random_code(user3, 'vipers.com')#id = 3
+url4 = ShortenedUrl.random_code(user1, 'everything.com')#id = 4
 url1.save
 url2.save
 url3.save
@@ -32,3 +32,29 @@ visit1.save
 visit2.save
 visit3.save
 visit4.save
+
+tag1 = TagTopic.new(topic: 'birds')
+tag2 = TagTopic.new(topic: 'boats')
+tag3 = TagTopic.new(topic: 'vipers')
+tag4 = TagTopic.new(topic: 'Toyota Tacoma')
+tag1.save
+tag2.save
+tag3.save
+tag4.save
+
+tagging1 = Tagging.new(tag_topic_id: 1, short_url_id: 1)
+tagging2 = Tagging.new(tag_topic_id: 1, short_url_id: 2)
+tagging3 = Tagging.new(tag_topic_id: 2, short_url_id: 2)
+tagging4 = Tagging.new(tag_topic_id: 3, short_url_id: 3)
+tagging5 = Tagging.new(tag_topic_id: 1, short_url_id: 4)
+tagging6 = Tagging.new(tag_topic_id: 2, short_url_id: 4)
+tagging7 = Tagging.new(tag_topic_id: 3, short_url_id: 4)
+tagging8 = Tagging.new(tag_topic_id: 4, short_url_id: 4)
+tagging1.save
+tagging2.save
+tagging3.save
+tagging4.save
+tagging5.save
+tagging6.save
+tagging7.save
+tagging8.save
